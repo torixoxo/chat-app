@@ -13,7 +13,7 @@ class RoomsController < ApplicationController
     if @room.save
       redirect_to root_path
     else
-      render :new, status: :unprocessable_entry
+      render :new, status: :unprocessable_entity
     end
 
   end
@@ -21,7 +21,7 @@ class RoomsController < ApplicationController
   private
   
   def room_params
-    params.require(:room).permit(:name, use_ids: [])
+    params.require(:room).permit(:name, user_ids: [])
   end
 
 end
